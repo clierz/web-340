@@ -9,17 +9,21 @@
 */ 
 
 
-
+// require statements for express, http, morgan and mongoose
 var express = require('express');
 var http = require('http');
 var logger = require('morgan');
 var mongoose = require('mongoose');
+
+
+// specify your db connection 
 var mongoDB = 'mongodb://clierz:husker1ne@ds043388.mlab.com:43388/ems';
 
-
+// create your connection and pass in your connection string
 mongoose.connect(mongoDB, {
     useMongoClient: true
 });
+
 
 mongoose.Promose = global.Promise;
 var db = mongoose.connection;
