@@ -6,6 +6,8 @@ var path = require("path");
 
 var logger = require("morgan");
 
+var helmet = require("helmet");
+
 var mongoose = require("mongoose");
 
 var mongoDB = "mongodb://clierz:husker1ne@ds043388.mlab.com:43388/ems";
@@ -36,9 +38,11 @@ app.set("view engine", "ejs");
 
 app.use(logger("short"));
 
+app.use(helmet.xssFilter());
+
 app.get("/", function(request, response){
     response.render('index', {
-        message: 'My Application for Handling Employee Records'
+        message: 'xss Prevention Example'
     });
 });
 
